@@ -652,8 +652,8 @@ Content-Type: application/json
 
 ### 1. Clone & Configure Environment
 ```bash
-git clone https://github.com/harisai-singuluri/ShopFlow----AI-Powered-E-Commerce-Platform.git
-cd ShopFlow----AI-Powered-E-Commerce-Platform
+git clone https://github.com/harisai-singuluri/ShopFlow-AI-Intelligent-E-Commerce-Platform.git
+cd ShopFlow-AI-Intelligent-E-Commerce-Platform
 ```
 
 Create a `.env` file in the project root:
@@ -702,7 +702,7 @@ When presenting **ShopFlow AI** to recruiters and engineering hiring managers on
 ```latex
 \textbf{ShopFlow AI -- Intelligent E-Commerce Platform}
 \hfill 
-\href{https://github.com/harisai-singuluri/ShopFlow----AI-Powered-E-Commerce-Platform}{\textcolor{blue}{Link}}
+\href{https://github.com/harisai-singuluri/ShopFlow-AI-Intelligent-E-Commerce-Platform}{\textcolor{blue}{Link}}
 \begin{itemize}
     \item Developed an enterprise e-commerce platform using Java 21 and Spring Boot 3, implementing concurrency-safe stock reservation, idempotent order lifecycles, and role-based access control.
     \item Built an intelligent RAG discovery engine with Spring AI and pgvector, enabling natural language product recommendations and automated semantic search across product documentation.

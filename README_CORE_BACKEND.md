@@ -284,8 +284,8 @@ erDiagram
 ## 14. Quick Start
 ```bash
 # Clone
-git clone https://github.com/harisai-singuluri/ShopFlow----AI-Powered-E-Commerce-Platform.git
-cd ShopFlow----AI-Powered-E-Commerce-Platform
+git clone https://github.com/harisai-singuluri/ShopFlow-AI-Intelligent-E-Commerce-Platform.git
+cd ShopFlow-AI-Intelligent-E-Commerce-Platform
 
 # Start dependencies
 docker compose up -d
