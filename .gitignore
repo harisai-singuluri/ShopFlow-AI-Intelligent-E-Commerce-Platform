@@ -1,25 +1,37 @@
 # Standard Java / Maven .gitignore
 # Compiled class files
-*.class
-
-# Log files
-*.log
-
-# Maven
+HELP.md
 target/
-!.mvn/wrapper/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# IDE files (IntelliJ IDEA)
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea/
-*.iml
 *.iws
+*.iml
+*.ipr
 
-# OS files
-.DS_Store
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+*.hip~
 
-# Environment files
+### VS Code ###
+.vscode/
+
+### Environment & Secrets ###
 .env
-
-# Docker
-**/docker-compose.override.yml
+*.local

@@ -2,41 +2,26 @@
 # Use environment variables for sensitive data (DB username/password, JWT secret, etc.)
 # This file defines the default profile (local development).
 
+
 spring:
   application:
     name: shopflow
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/shopflow}
-    username: ${SPRING_DATASOURCE_USERNAME:shopflow_user}
-    password: ${SPRING_DATASOURCE_PASSWORD:shopflow_pass}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:55432}/${DB_NAME:shopflow}
+    username: ${DB_USERNAME:shopflow_user}
+    password: ${DB_PASSWORD:shopflow_password}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: false
     open-in-view: false
     properties:
       hibernate:
         format_sql: true
-
   flyway:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
-  data:
-    web:
-      pageable:
-        default-page-size: 20
-        max-page-size: 100
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  endpoint:
-    health:
-      show-details: never
 
 server:
   port: 8080

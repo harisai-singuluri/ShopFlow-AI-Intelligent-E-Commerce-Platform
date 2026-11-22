@@ -1,8 +1,11 @@
 CREATE TABLE IF NOT EXISTS products (
-    id UUID PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description VARCHAR(500),
-    price NUMERIC(12, 2) NOT NULL,
-    sku VARCHAR(50) NOT NULL UNIQUE,
-    available_quantity INT NOT NULL CHECK (available_quantity >= 0)
+    id BIGSERIAL PRIMARY KEY,
+    sku VARCHAR(64) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price NUMERIC(12, 2) NOT NULL CHECK (price >= 0),
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX IF NOT EXISTS idx_products_sku ON products (sku);

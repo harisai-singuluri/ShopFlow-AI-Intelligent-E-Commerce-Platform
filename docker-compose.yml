@@ -1,36 +1,20 @@
 services:
-  db:
+  postgres:
     image: postgres:15-alpine
-    container_name: shopflow-db
+    container_name: shopflow-postgres
     environment:
       POSTGRES_DB: shopflow
-      POSTGRES_USER: ${POSTGRES_USER:-shopflow_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shopflow_pass}
+      POSTGRES_USER: shopflow_user
+      POSTGRES_PASSWORD: shopflow_password
     ports:
-      - "127.0.0.1:5433:5432"
+      - "55432:5432"
+    volumes:
+      - shopflow_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U shopflow_user -d shopflow"]
       interval: 10s
       timeout: 5s
       retries: 5
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  app:
-    build:
-      context: .
-    container_name: shopflow-app
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/shopflow
-      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-shopflow_user}
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-shopflow_pass}
-    ports:
-      - "127.0.0.1:8080:8080"
-    restart: unless-stopped
 
 volumes:
-  pgdata:
+  shopflow_pgdata:
